@@ -1,3 +1,17 @@
+h1 {
+  display: inline-block;
+  font-size: 72px;
+}
+ul {
+  list-style: none;
+  padding-left: 2px;
+  padding-top: 30px;
+}
+li {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 .appContainer {
   max-width: 640px;
   border: 1px solid #ccd1d1;
@@ -7,18 +21,15 @@
   font-family: Arial, Helvetica, sans-serif;
   color: #717d7e;
 }
-
 .overview {
   text-align: center;
 }
 .temperature {
   text-align: right;
+  padding-right: 0;
+  padding-top: 10px;
 }
-
-ul {
-  list-style: none;
-}
-li {
-  font-size: 14px;
-  line-height: 1;
+.units {
+  position: relative;
+  padding-bottom: 20px;
 }
