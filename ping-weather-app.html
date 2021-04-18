@@ -17,9 +17,29 @@
   <body>
     <div class="container">
       <div class="appContainer">
+        <form id="search-form">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city"
+                class="form-control"
+                id="city-input"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="search"
+                class="btn btn-primary w-100"
+              />
+            </div>
+          </div>
+        </form>
         <div class="row overview">
           <div>
-            <img src="" alt="clear" id="icon" />
+            <img src="" alt="" id="icon" />
             <h4 id="description"></h4>
             <h6>
               <span id="city"></span>,
