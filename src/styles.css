@@ -2,6 +2,9 @@ h1 {
   display: inline-block;
   font-size: 72px;
 }
+h4 {
+  text-transform: capitalize;
+}
 ul {
   list-style: none;
   padding-left: 2px;
