@@ -17,12 +17,17 @@ li {
   font-size: 14px;
   line-height: 1.2;
 }
+footer {
+  font-size: 12px;
+  color: #717d7e;
+  text-align: center;
+}
 
 .appContainer {
-  max-width: 640px;
+  max-width: 480px;
   border: 1px solid #ccd1d1;
   border-radius: 5px;
-  margin: 20px auto;
+  margin: 20px auto 5px auto;
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
   color: #717d7e;
