@@ -1,3 +1,6 @@
+a {
+  text-decoration: none;
+}
 h1 {
   display: inline-block;
   font-size: 72px;
@@ -24,6 +27,15 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   color: #717d7e;
 }
+.temperature .active {
+  color: #717d7e;
+  cursor: default;
+  text-decoration: none;
+}
+.temperature .active:hover {
+  text-decoration: none;
+}
+
 .overview {
   text-align: center;
 }
