@@ -79,8 +79,13 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind-speed");
   let iconElement = document.querySelector("#icon");
+  let maximumTemperature = document.querySelector("#temp-max");
+  let minimumTemperature = document.querySelector("#temp-min");
+  let thermalSensation = document.querySelector("#feels-like");
 
   celsiusTemperature = response.data.main.temp;
+
+  console.log(response.data.main);
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -89,6 +94,10 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  maximumTemperature.innerHTML = Math.round(response.data.main.temp_max);
+  minimumTemperature.innerHTML = Math.round(response.data.main.temp_min);
+  thermalSensation.innerHTML = Math.round(response.data.main.feels_like);
+
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
