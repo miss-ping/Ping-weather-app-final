@@ -28,6 +28,30 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function findImageSource(icon) {
+  let mappings = {};
+  mappings["01d"] = "src/imgs/01d-clear-sky.svg";
+  mappings["01n"] = "src/imgs/01n-clear-sky.svg";
+  mappings["02d"] = "src/imgs/02d-few-clouds.svg";
+  mappings["02n"] = "src/imgs/02n-few-clouds.svg";
+  mappings["03d"] = "src/imgs/03d-broken-clouds";
+  mappings["03n"] = "src/imgs/03n-broken-clouds.svg";
+  mappings["04d"] = "src/imgs/04d-scattered-clouds.svg";
+  mappings["04n"] = "src/imgs/04n-scattered-clouds";
+  mappings["09d"] = "src/imgs/09d-shower-rain.svg";
+  mappings["09n"] = "src/imgs/09n-shower-rain.svg";
+  mappings["10d"] = "src/imgs/10d-rain.svg";
+  mappings["10n"] = "src/imgs/10n-rain.svg";
+  mappings["11d"] = "src/imgs/11d-thunderstorm";
+  mappings["11n"] = "src/imgs/11n-thunderstorm";
+  mappings["13d"] = "src/imgs/13d-snow.svg";
+  mappings["13n"] = "src/imgs/13n-snow.svg";
+  mappings["50d"] = "src/imgs/50d-mist.svg";
+  mappings["50n"] = "src/imgs/50n-mist.svg";
+
+  return mappings[icon];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -35,15 +59,15 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
+    let forecastIconSrc = findImageSource(forecastDay.weather[0].icon);
+
     if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
         <div class="col-2">
           <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
-          <img src="http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png" 
+          <img src="${forecastIconSrc}"
              alt="" 
              width=52px
              />
@@ -128,3 +152,5 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Lisbon");
+
+let arr = [1, 2, 3, "", { a: 1 }];
