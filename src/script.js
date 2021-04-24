@@ -34,16 +34,16 @@ function findImageSource(icon) {
   mappings["01n"] = "src/imgs/01n-clear-sky.svg";
   mappings["02d"] = "src/imgs/02d-few-clouds.svg";
   mappings["02n"] = "src/imgs/02n-few-clouds.svg";
-  mappings["03d"] = "src/imgs/03d-broken-clouds";
+  mappings["03d"] = "src/imgs/03d-broken-clouds.svg";
   mappings["03n"] = "src/imgs/03n-broken-clouds.svg";
   mappings["04d"] = "src/imgs/04d-scattered-clouds.svg";
-  mappings["04n"] = "src/imgs/04n-scattered-clouds";
+  mappings["04n"] = "src/imgs/04n-scattered-clouds.svg";
   mappings["09d"] = "src/imgs/09d-shower-rain.svg";
   mappings["09n"] = "src/imgs/09n-shower-rain.svg";
   mappings["10d"] = "src/imgs/10d-rain.svg";
   mappings["10n"] = "src/imgs/10n-rain.svg";
-  mappings["11d"] = "src/imgs/11d-thunderstorm";
-  mappings["11n"] = "src/imgs/11n-thunderstorm";
+  mappings["11d"] = "src/imgs/11d-thunderstorm.svg";
+  mappings["11n"] = "src/imgs/11n-thunderstorm.svg";
   mappings["13d"] = "src/imgs/13d-snow.svg";
   mappings["13n"] = "src/imgs/13n-snow.svg";
   mappings["50d"] = "src/imgs/50d-mist.svg";
@@ -118,10 +118,17 @@ function displayTemperature(response) {
   maximumTemperature.innerHTML = Math.round(response.data.main.temp_max);
   minimumTemperature.innerHTML = Math.round(response.data.main.temp_min);
 
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  //Get main icon
+  //iconElement.setAttribute(
+  //"src",
+  //`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  //);
+  //iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  //Change main icon
+  let forecastIconSrc = findImageSource(response.data.weather[0].icon);
+
+  iconElement.setAttribute("src", `${forecastIconSrc}`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
