@@ -81,11 +81,8 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   let maximumTemperature = document.querySelector("#temp-max");
   let minimumTemperature = document.querySelector("#temp-min");
-  let thermalSensation = document.querySelector("#feels-like");
 
   celsiusTemperature = response.data.main.temp;
-
-  console.log(response.data.main);
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -96,7 +93,6 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   maximumTemperature.innerHTML = Math.round(response.data.main.temp_max);
   minimumTemperature.innerHTML = Math.round(response.data.main.temp_min);
-  thermalSensation.innerHTML = Math.round(response.data.main.feels_like);
 
   iconElement.setAttribute(
     "src",
@@ -119,20 +115,10 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFanrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = Math.round((21 * 9) / 5 + 32);
-  temperatureElement.innerHTML = fahrenheitTemperature;
-}
-
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
+
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
@@ -140,11 +126,5 @@ let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFanrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Lisbon");
