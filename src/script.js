@@ -61,15 +61,15 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     let forecastIconSrc = findImageSource(forecastDay.weather[0].icon);
 
-    if (index < 6) {
+    if (index < 4) {
       forecastHTML =
         forecastHTML +
         `
-        <div class="col-2">
+        <div class="col-3">
           <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
           <img src="${forecastIconSrc}"
              alt="" 
-             width=52px
+             width=56px
              />
            <div class="forecast-temperatures">
               <span class="forecast-temperature-max">${Math.round(
@@ -118,13 +118,6 @@ function displayTemperature(response) {
   maximumTemperature.innerHTML = Math.round(response.data.main.temp_max);
   minimumTemperature.innerHTML = Math.round(response.data.main.temp_min);
 
-  //Get main icon
-  //iconElement.setAttribute(
-  //"src",
-  //`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  //);
-  //iconElement.setAttribute("alt", response.data.weather[0].description);
-
   //Change main icon
   let forecastIconSrc = findImageSource(response.data.weather[0].icon);
 
@@ -159,5 +152,3 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Lisbon");
-
-let arr = [1, 2, 3, "", { a: 1 }];

@@ -1,6 +1,13 @@
 a {
   text-decoration: none;
 }
+body {
+  background: linear-gradient(
+    217deg,
+    rgba(209, 232, 201, 0.8),
+    rgba(202, 233, 239, 0) 70.71%
+  );
+}
 h1 {
   text-align: center;
   display: inline;
@@ -18,8 +25,8 @@ h6 {
 }
 ul {
   list-style: none;
-  padding-left: 2px;
   padding-top: 30px;
+  padding-left: 0;
 }
 li {
   font-size: 14px;
@@ -28,47 +35,74 @@ li {
 footer {
   font-size: 12px;
   color: #717d7e;
-  text-align: center;
+  text-align: left;
 }
 
 .appContainer {
-  max-width: 480px;
-  border: 1px solid #ccd1d1;
-  border-radius: 8px;
+  max-width: 512px;
+  background-color: white;
+  box-shadow: 0px 22px 40px rgba(73, 160, 157, 16%);
+  border-radius: 16px;
   margin: 20px auto 5px auto;
-  padding: 20px;
+  padding: 30px 35px 16px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #717d7e;
+  color: #25ada3;
 }
-.iconCell {
-  padding-right: 0;
+.appWrapper {
+  max-width: 512px;
+  margin: 0 auto;
 }
-.overview {
-  padding-top: 30px;
-  padding-bottom: 20px;
-  text-align: center;
+.btn {
+  background-color: #83dbca;
+  border: 1px solid #83dbca;
+  border-radius: 10px;
+  padding-left: 6px;
+  color: white;
 }
-.temperature {
-  text-align: right;
+.btn:hover {
+  background: #5f2c82;
+  border: 1px solid #5f2c82;
+  color: white;
 }
-.temperature .active {
-  color: #717d7e;
-  cursor: default;
-  text-decoration: none;
+.forecast-day {
+  font-size: 15px;
+  font-weight: lighter;
 }
-.temperature .active:hover {
-  text-decoration: none;
-}
-
-.weather-forecast {
-  margin: 20px auto 10px;
-  text-align: center;
-  color: #717d7e;
-  opacity: 0.7;
+.form-control {
+  border-color: #83dbca;
+  border-radius: 10px;
+  padding-right: 6px;
 }
 .forecast-temperatures {
   font-size: 14px;
 }
 .forecast-temperature-max {
   font-weight: 600;
+}
+.greeting {
+  color: #b2cecc;
+  font-weight: 100;
+}
+.overview {
+  padding-top: 0;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.temperature {
+  text-align: right;
+}
+.weather-forecast {
+  background-color: #d1e8e7;
+  border-radius: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin: 20px auto 10px;
+  text-align: center;
+  color: #5f2c82;
+  opacity: 0.7;
+}
+.units {
+  font-weight: bold;
+  position: relative;
+  top: -32px;
 }
